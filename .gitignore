@@ -1,0 +1,4 @@
+.DS_Store
+notes.txt
+server/.env
+server/package-lock.json
