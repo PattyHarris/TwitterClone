@@ -1,5 +1,5 @@
-import { ObjectId } from "mongodb";
-import { Database, Tweet } from "../../../lib/types";
+import { Db, ObjectId } from "mongodb";
+import { Database, Tweet, User } from "../../../lib/types";
 import { GraphQLDateTime } from 'graphql-scalars';
 
 export const tweetResolvers = {
@@ -12,7 +12,13 @@ export const tweetResolvers = {
             _args: {}, 
             { db }: { db: Database } ): Promise<Tweet[]> => {
                 return await db.tweets.find({}).toArray();
-        }
+        },
+        tweet: async (
+            _root: undefined, 
+            { id }: { id: string }, 
+            { db }: { db: Database } ) => {
+                return await db.tweets.findOne(new ObjectId(id))
+        },
     },
     Mutation: {
         createTweet: async (
@@ -37,6 +43,12 @@ export const tweetResolvers = {
         }
     },
     Tweet: {
-        id: (tweet: Tweet): string  => tweet._id.toString()
+        id: (tweet: Tweet): string  => tweet._id.toString(),
+
+        author: async (tweet: Tweet, 
+                       { id }: { id: string }, 
+                       { db }: { db: Database }  ) : Promise<User | null> => {
+                return await db.users.findOne(tweet.authorId);
+        }
     }   
 };

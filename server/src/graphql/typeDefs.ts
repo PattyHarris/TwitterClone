@@ -9,12 +9,13 @@ export const typeDefs = gql`
         userName: String!
         firstName: String!
         lastName: String!
+        tweets: [Tweet]
     }
 
     type Tweet {
         id: ID!
         tweet: String!
-        authorId: ID!
+        author: User!
         createdAt: DateTime!
     }
 
@@ -28,6 +29,7 @@ export const typeDefs = gql`
         users: [User!]!
         user(id: ID!) : User
         tweets: [Tweet!]!
+        tweet(id: ID!) : Tweet
         followers: [Follower!]!
     }
 
