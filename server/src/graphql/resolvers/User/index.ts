@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb";
-import { Database, User } from "../../../lib/types";
+import { Database, Tweet, User } from "../../../lib/types";
 
 export const userResolvers = {
  
@@ -40,6 +40,12 @@ export const userResolvers = {
         }
     },
     User: {
-        id: (user: User): string  => user._id.toString()
+        id: (user: User): string  => user._id.toString(),
+
+        tweets: async(user: User,
+            { id }: { id: string }, 
+            { db }: { db: Database }  ) : Promise<Tweet[] > => {
+                return await db.tweets.find( { authorId: user._id } ).toArray();
+            }
     }   
 };

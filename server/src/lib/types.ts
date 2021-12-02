@@ -17,8 +17,8 @@ export interface Tweet {
 
 export interface Follower {
     _id: ObjectId;
-    follower: ObjectId;
-    following: ObjectId;
+    followerId: ObjectId;
+    followingId: ObjectId;
 }
 
 export interface Database {

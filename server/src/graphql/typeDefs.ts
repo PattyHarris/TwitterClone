@@ -21,8 +21,8 @@ export const typeDefs = gql`
 
     type Follower {
         id: ID!
-        follower: ID!
-        following: ID!
+        followerId: ID!
+        followingId: ID!
     }
 
     type Query {
@@ -31,12 +31,14 @@ export const typeDefs = gql`
         tweets: [Tweet!]!
         tweet(id: ID!) : Tweet
         followers: [Follower!]!
+        follower(id: ID!) : Follower
+        userFollowers(id: ID!): [Follower]
     }
 
     type Mutation {
         createUser(userName: String!, firstName: String!, lastName: String!) : User
         createTweet(authorId: ID!, tweet: String!) : Tweet
-        createFollower(follower: ID!, following: ID!) : Follower
+        createFollower(followerId: ID!, followingId: ID!) : Follower
     }
 
 `

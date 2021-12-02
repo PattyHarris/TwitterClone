@@ -9,16 +9,28 @@ export const followerResolvers = {
             _args: {}, 
             { db }: { db: Database } ): Promise<Follower[]> => {
                 return await db.followers.find({}).toArray();
-        }
+        },
+        follower: async (
+            _root: undefined, 
+            { id }: { id: string }, 
+            { db }: { db: Database } ) => {
+                return await db.followers.findOne(new ObjectId(id))
+        },
+        userFollowers: async (
+            _root: undefined,
+            { id } : {id : string },
+            { db }: { db: Database } ): Promise<Follower[]> => {
+                return await db.followers.find({ followingId : new ObjectId(id) }).toArray();
+        },      
     },
     Mutation: {
         createFollower: async (
             _root: undefined, 
-            { follower, following }: {follower: string, following: string}, 
+            { followerId, followingId }: {followerId: string, followingId: string}, 
             { db }: {db: Database } ) => {
 
             const newFollower = await db.followers.insertOne(
-                {follower: new ObjectId(follower), following: new ObjectId(following)}, 
+                {followerId: new ObjectId(followerId), followingId: new ObjectId(followingId)}, 
                 function(err, info) {
                     if (err) {
                     console.log("Follower not inserted successfully!");
@@ -31,6 +43,8 @@ export const followerResolvers = {
         }
     },
     Follower: {
-        id: (follower: Follower): string  => follower._id.toString()
+        id: (follower: Follower): string  => follower._id.toString(),
+        // followingId: (follower: Follower): string => follower.followingId.toString(),
+        // followerId: (follower: Follower): string => follower.followerId.toString(),
     }   
 };
