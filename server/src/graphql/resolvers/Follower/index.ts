@@ -20,7 +20,9 @@ export const followerResolvers = {
             _root: undefined,
             { id } : {id : string },
             { db }: { db: Database } ): Promise<Follower[]> => {
-                return await db.followers.find({ followingId : new ObjectId(id) }).toArray();
+                let followersList : Follower[];
+                followersList  = await db.followers.find({ followingId : new ObjectId(id) }).toArray();
+                return followersList;
         },      
     },
     Mutation: {
