@@ -74,14 +74,3 @@ export const userResolvers = {
             }
     }   
 };
-
-/*
-    userFollowers: async (
-            _root: undefined,
-            { id } : {id : string },
-            { db }: { db: Database } ): Promise<Follower[]> => {
-                let followersList : Follower[];
-                followersList  = await db.followers.find({ followingId : new ObjectId(id) }).toArray();
-                return followersList;
-        },  
-*/
