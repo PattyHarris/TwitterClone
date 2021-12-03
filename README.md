@@ -7,7 +7,7 @@ This project creates a very simple Twitter clone server.  The application is bui
 4. Retrieve user(s)
 5. Retrieve tweets.  Here, the tweets for a user's followers are included and sorted by creation date.
    
-As this is a GraphQL project, the queries and mutations available are listed below.  Instructions also include running the GraphQL queries using PostMan.
+As this is a GraphQL project, some of the queries and mutations available are listed below.  Instructions also include running the GraphQL queries using PostMan.  The GraphQL Sandbox will show all the queries and mutations that are not addressed in this `readme`.
 
 # Prerequisites
 
