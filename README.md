@@ -1,11 +1,11 @@
 # Twitter Clone
 
 This project creates a very simple Twitter clone server.  The application is built using a combination of the expressJS framework, the Apollo Server, GraphQL, Typescript, and mongodb.  The server supports the following services:
-    1. Create user
-    2. Create user tweets
-    3. Create user followers
-    4. Retrieve user(s)
-    5. Retrieve tweets.  Here, the tweets for a user's followers are included and sorted by creation date.
+1. Create user
+2. Create user tweets
+3. Create user followers
+4. Retrieve user(s)
+5. Retrieve tweets.  Here, the tweets for a user's followers are included and sorted by creation date.
    
 As this is a GraphQL project, the queries and mutations available are listed below.  Instructions also include running the GraphQL queries using PostMan.
 
