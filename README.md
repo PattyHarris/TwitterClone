@@ -18,8 +18,8 @@ As this is a GraphQL project, the queries and mutations available are listed bel
 
 Note: The commands below can be used with the equivalents on yarn
 
-- After cloning the application, `cd` into the folder and run `npm install`.
-- Create a `.env` file following the format of the `.env.example` file and populate with your own values or use the values available in the `.env.example` file
+- After cloning the application, `cd` into the `server` folder and run `npm install`.
+- Create a `.env` file following the format of the `.env.example` file and populate with your own values or use the values available in the `.env.example` file.  Only the port value is used at this time.  The port value is currently set to 9000.
 - Run `npm run build` to build the application.
 - Run `npm run start` to start the application
 
