@@ -20,7 +20,8 @@ Note: The commands below can be used with the equivalents on yarn
 
 - After cloning the application, `cd` into the folder and run `npm install`.
 - Create a `.env` file following the format of the `.env.example` file and populate with your own values or use the values available in the `.env.example` file
-- Run `npm start` to start the application
+- Run `npm run build` to build the application.
+- Run `npm run start` to start the application
 
 # Technologies used
 
@@ -28,7 +29,7 @@ The app is built on node js, using express+GraphQL as the framework of choice (e
 
 # Thought Process
 
-My skills using the MERNG stack are that of a true beginner.  With that in mind, there is enormous room for improvement.  The schema design includes a separate schema for the followers of a given user.  I'm sure there is a better GraphQL-way for finding the tweets from a the user's followers, but the current schema works for now.
+This initial entry uses the MERNG stack, and provides a starting point for further development.  There is room for improvement in this starting point.  The schema design includes a separate schema for the followers of a given user.  There might be a better GraphQL-way for finding the tweets from a the user's followers, but the current schema works for now.
 
 # Project Structure
 
