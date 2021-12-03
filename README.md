@@ -13,6 +13,7 @@ As this is a GraphQL project, the queries and mutations available are listed bel
 
 - Node.JS v16+
 - Package manager(npm or yarn)
+- Mongodb
 
 # Starting the app
 
